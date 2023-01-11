@@ -1,8 +1,8 @@
-// Assignment code here
-var numberArray =  ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-var specialArray = [  '@',  '%',  '+',  '\\',  '/',  "'",  '!',  '#',  '$',  '^',  '?',  ':',  ',',  ')',  '(',  '}',  '{',  ']',  '[',  '~',  '-',  '_',  '.'];
-var lowerCaseArray = [  'a',  'b',  'c',  'd',  'e',  "f",  'g',  'h',  'i',  'j',  'k',  'l',  'm',  'n',  'o',  'p',  'q',  'r',  's',  't',  'u',  'v',  'w',  'x',  'y',  'z'];
-var upperCaseArray = [  'A',  'B',  'C',  'D',  'E',  "F",  'G',  'H',  'I',  'J',  'K',  'L',  'M',  'N', 'O',  'P',  'Q',  'R',  'S',  'R',  'U',  'V',  'W',  'X',  'Y',  'Z'];
+// assign variables for prompt
+var number =  ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+var specialCharacter = [  '@',  '%',  '+',  '\\',  '/',  "'",  '!',  '#',  '$',  '^',  '?',  ':',  ',',  ')',  '(',  '}',  '{',  ']',  '[',  '~',  '-',  '_',  '.'];
+var lowerCase = [  'a',  'b',  'c',  'd',  'e',  "f",  'g',  'h',  'i',  'j',  'k',  'l',  'm',  'n',  'o',  'p',  'q',  'r',  's',  't',  'u',  'v',  'w',  'x',  'y',  'z'];
+var upperCase = [  'A',  'B',  'C',  'D',  'E',  "F",  'G',  'H',  'I',  'J',  'K',  'L',  'M',  'N', 'O',  'P',  'Q',  'R',  'S',  'R',  'U',  'V',  'W',  'X',  'Y',  'Z'];
 var characterPool = []
 var randomPasswword = []
 
@@ -11,43 +11,53 @@ function generatePassword() {
     var passwordLength = prompt("How long would you like your password to be?");
     var lowerCaseChoice = confirm("Would you like lowercase characters in your password?");
     var upperCaseChoice = confirm("Would you like uppercase characters in your password?");
-    var numbersChoice = confirm("Would you like numbers in your password?");
-    var specialCharactersChoice = confirm("Would you like special characters in your password?");
+    var numberChoice = confirm("Would you like numbers in your password?");
+    var specialCharacterChoice = confirm("Would you like special characters in your password?");
 
-    // depending on user answers, create array that stores possible characters
-    if(lowerCaseChoice===true) {
-      characterPool=characterPool.concat(lowerCaseArray);
-  };
+        // depending on user answers, create array that stores possible characters
+        if(lowerCaseChoice===true) {
+            characterPool=characterPool.concat(lowerCase);
+      };
 
-    if(upperCaseChoice===true) {
-      characterPool=characterPool.concat(upperCaseArray);
-  };
+        if(upperCaseChoice===true) {
+            characterPool=characterPool.concat(upperCase);
+      };
 
-    if(numbersChoice===true) {
-      characterPool=characterPool.concat(numberArray);
-  };
+        if(numberChoice===true) {
+            characterPool=characterPool.concat(number);
+      };
 
-    if(specialCharactersChoice===true) {
-      characterPool=characterPool.concat(specialArray);
-  };
-    console.log(characterPool);
+        if(specialCharacterChoice===true) {
+            characterPool=characterPool.concat(specialCharacter);
+      };
+            console.log(characterPool);
 
-  // create for loop that takes into account users password length answer and depending on answer, insert a random character from possible characters array into final password array contingent on that answer
-for(var i = 0; i < passwordLength; i ++){
-    var randomIndex = Math.floor(Math.random()*characterPool.length);
-    var characterValue = characterPool[randomIndex];
-    randomPasswword.push(characterValue);
-    console.log(randomPasswword);
-  };
+            // for loop that applies users password length
+            for(var i = 0; i < passwordLength; i ++){
 
-  // goal is return string that will be set into text area
+                //minimum password length validation  
+              //   if(pw.length < 8) {  
+              //       document.getElementById("message").innerHTML = "**Password length must be atleast 8 characters";  
+              //       return false;  
+              // };
+
+        // insert a random character from possible characterPool into final password array
+        var randomIndex = Math.floor(Math.random()*characterPool.length);
+        var characterValue = characterPool[randomIndex];
+      
+        randomPasswword.push(characterValue);
+        console.log(randomPasswword);
+      };
+
+  // return string that will be set into text area
   return randomPasswword.join("");
 }
 
-// Get references to the #generate element
+
+// get references to the #generate element
 var generateBtn = document.querySelector("#generate");
 
-// Write password to the #password input
+// write password to the #password input
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -56,6 +66,6 @@ function writePassword() {
 
 }
 
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
