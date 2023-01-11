@@ -35,10 +35,10 @@ function generatePassword() {
             // for loop that applies users password length
             for(var i = 0; i < passwordLength; i ++){
 
-                //minimum password length validation  
-              //   if(pw.length < 8) {  
-              //       document.getElementById("message").innerHTML = "**Password length must be atleast 8 characters";  
-              //       return false;  
+              //   //minimum password length validation  
+              //   if(passwordLength.length < 8) {  
+              //       document.getElementById("password").innerHTML = "**Password length must be atleast 8 characters";  
+              //       return false;
               // };
 
         // insert a random character from possible characterPool into final password array
