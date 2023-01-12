@@ -12,6 +12,4 @@ Click on the link to navigate to the random password generator. Follow the promp
 
 https://jannorth.github.io/Password-Generator/
 
-    ```md
-    ![random password generator page](assets/images/screenshot.png)
-    ```
+![random password generator page](assets/images/screenshot.png)
